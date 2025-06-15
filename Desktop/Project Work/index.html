@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rent </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Header Section-->
+   <header class="navbar">
+                <div class="logo">Rent Up</div>
+                <nav>
+                    <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html" class="btn-register">Register</a></li> 
+                </ul>
+                 </nav>
+                 
+   </header>      
+   
+<!--hero Section-->
+<section class="hero">
+    <h1>Let us help you to <span>CHOOSE THE BEST </span></h1>
+    <div class="search-bar">
+    <select>
+        <option>Rent House </option>
+        <option>Buy House</option>
+    </select>
+    <select>
+        <option>New York</option>
+        <option>Los Angeles</option>
+        <option>Texas</option>
+    </select>
+    <select>
+        <option>$10k-15k</option>
+        <option>$15k-25k</option>
+    </select>
+    <button>Search</button>
+    </div>
+</section>
+
+<!--Services Section-->
+<section class="services">
+    <h2>What We Offer</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="rent.png" alt="Rent a home">
+            <h3>Rent a Home</h3>
+            <p>Browse thousand of listing for your ideal Home</p>
+        </div>
+        <div class="card">
+            <img src="neighborhood.png" alt="See neighborhoods">
+            <h3>See neighborhoods</h3>
+            <p>Explore the best neighborhoods with our help.</p>
+        </div>
+        <div class="card">
+            <img src="buy.png" alt="Buy a home">
+            <h3>Buy a Home</h3>
+            <p>Invest smartly in the property of your dreams.</p>
+        </div>
+    </div>
+</section>
+
+<!--Featured Homes Section-->
+<section class="featured">
+    <h2>Featured Homes</h2>
+    <div class="property-list">
+        <div class="property-card">
+            <img src="images/house1.jpg" alt="House 1">
+            <h3>Modern House,NewYork</h3>
+            <p>$12,000 /month .2,500sq ft</p>
+            <button>View Details </button>
+        </div>
+        <div class="property-card">
+            <img src="images/house2.jpg" alt="House 2">
+            <h3>Luxury Villa,Texas</h3>
+            <p>$15,500 / month • 3,200 sq ft</p>
+            <button>View Details</button>
+        </div>
+    </div>
+</section>
+
+ <!--Property upload form-->
+<section class="upload-form">
+    <h2>Add Your property</h2>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Property Title" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <input type="number" name="price" placeholder="Price ($)" required>
+        <input type="file" name="image" placeholder="image/*" required>
+        <textarea name="description" placeholder="Property Description" rows="4"></textarea> 
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<!--Feedback-->
+<section class="testimonials">
+    <h2>What Our Clients Says</h2>
+    <div class="testimonial-list">
+        <div class="testimonial">
+            <p>"This platform made finding a rental house so easy and smooth.Highly recommended! </p>
+            <h4>-Sujan,Kathmandu</h4>
+        </div>
+        <div class="testimonial">
+            <p>"A professional service with great property options. I found the perfect home!"</p>
+            <h4>- Riya, Bhaktapur</h4>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2025 Rent Up. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

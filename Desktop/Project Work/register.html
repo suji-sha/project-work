@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - RentNest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Create Your Account</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <input type="password" placeholder="Confirm Password" required>
+      
+      <!-- Gender -->
+    <div class="gender-group">
+      <label>Gender:</label><br>
+      <label><input type="radio" name="gender" value="male" required> Male</label>
+      <label><input type="radio" name="gender" value="female"> Female</label>
+      <label><input type="radio" name="gender" value="other"> Other</label>
+    </div>
+
+    <!-- Birthdate -->
+    <input type="date" name="birthdate" required>
+
+    <!-- Address -->
+    <input type="text" placeholder="Address" name="address" required>
+      
+    <button type="submit">Register</button>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+    </form>
+  </div>
+</body>
+</html>
