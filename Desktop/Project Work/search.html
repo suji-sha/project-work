@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Rooms - Room Finder</title>
+  <link rel="stylesheet" href="style.css" />
+  </head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Room Finder</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html" class="btn-register">Register</a></li> 
+    </ul>
+  </nav>
+
+  <section class="page-content">
+    <h1>Find Your Perfect Room</h1>
+    <div class="filters">
+      <select id="location-filter">
+        <option value="">All Locations</option>
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Lalitpur">Lalitpur</option>
+        <option value="Bhaktapur">Bhaktapur</option>
+      </select>
+
+      <input type="number" id="min-price" placeholder="Min Rent (NRs)" min="0" />
+
+      <input type="number" id="max-price" placeholder="Max Rent (NRs)" min="0" />
+
+      <select id="room-type-filter">
+        <option value="">All Types</option>
+        <option value="Single">Single Room</option>
+        <option value="Shared">Shared Room</option>
+        <option value="Apartment">Apartment</option>
+      </select>
+    </div>
+
+    <div class="results" id="results">
+      <!-- Filtered rooms will appear here -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Room Finder. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Sample room data
+    const rooms = [
+      {
+        id: 1,
+        title: "Cozy Single Room in Kathmandu",
+        location: "Kathmandu",
+        price: 8000,
+        type: "Single",
+        image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80",
+        contact: "tel:+9779800000000"
+      },
+      {
+        id: 2,
+        title: "Shared Room near Lalitpur Durbar Square",
+        location: "Lalitpur",
+        price: 5000,
+        type: "Shared",
+        image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80",
+        contact: "tel:+9779811111111"
+      },
+      {
+        id: 3,
+        title: "Modern Apartment in Bhaktapur",
+        location: "Bhaktapur",
+        price: 15000,
+        type: "Apartment",
+        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80",
+        contact: "tel:+9779822222222"
+      },
+      {
+        id: 4,
+        title: "Affordable Single Room in Lalitpur",
+        location: "Lalitpur",
+        price: 7000,
+        type: "Single",
+        image: "https://images.unsplash.com/photo-1600585154334-13e6d1f6f34b?auto=format&fit=crop&w=600&q=80",
+        contact: "tel:+9779833333333"
+      }
+    ];
+
+    // Elements
+    const locationFilter = document.getElementById("location-filter");
+    const minPriceFilter = document.getElementById("min-price");
+    const maxPriceFilter = document.getElementById("max-price");
+    const roomTypeFilter = document.getElementById("room-type-filter");
+    const resultsContainer = document.getElementById("results");
+
+    // Function to render rooms on page
+    function renderRooms(filteredRooms) {
+      resultsContainer.innerHTML = "";
+      if (filteredRooms.length === 0) {
+        resultsContainer.innerHTML = "<p>No rooms found matching your criteria.</p>";
+        return;
+      }
+
+      filteredRooms.forEach(room => {
+        const card = document.createElement("div");
+        card.className = "room-card";
+
+        card.innerHTML = `
+          <img src="${room.image}" alt="${room.title}" class="room-img" />
+          <div class="room-info">
+            <h3>${room.title}</h3>
+            <p><strong>Location:</strong> ${room.location}</p>
+            <p><strong>Rent:</strong> NPR ${room.price.toLocaleString()}</p>
+            <p><strong>Type:</strong> ${room.type}</p>
+            <a href="${room.contact}" class="btn-contact">Contact Owner</a>
+          </div>
+        `;
+
+        resultsContainer.appendChild(card);
+      });
+    }
+
+    // Filter function
+    function filterRooms() {
+      const locationValue = locationFilter.value;
+      const minPriceValue = parseInt(minPriceFilter.value) || 0;
+      const maxPriceValue = parseInt(maxPriceFilter.value) || Infinity;
+      const roomTypeValue = roomTypeFilter.value;
+
+      const filtered = rooms.filter(room => {
+        return (
+          (locationValue === "" || room.location === locationValue) &&
+          room.price >= minPriceValue &&
+          room.price <= maxPriceValue &&
+          (roomTypeValue === "" || room.type === roomTypeValue)
+        );
+      });
+
+      renderRooms(filtered);
+    }
+
+    // Event listeners
+    locationFilter.addEventListener("change", filterRooms);
+    minPriceFilter.addEventListener("input", filterRooms);
+    maxPriceFilter.addEventListener("input", filterRooms);
+    roomTypeFilter.addEventListener("change", filterRooms);
+
+    // Initial render - show all rooms
+    renderRooms(rooms);
+  </script>
+</body>
+</html>
